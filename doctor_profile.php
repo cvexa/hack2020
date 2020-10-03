@@ -3,57 +3,71 @@
 
 <!-- Content Wrapper. Contains page content -->
 
+<?php include './php/read_doctor_data.php';?>
+
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Допълнителна информация
-            <small>Preview</small>
+            Вашите данни
+    <?php var_dump($_SESSION);?>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Forms</a></li>
-            <li class="active">General Elements</li>
-        </ol>
+        
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <div class="row">
+        <div class="_SESSION">
             <!-- left column -->
             <div class="col-md-6">
                 <!-- general form elements -->
                 <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Quick Example</h3>
-                    </div>
+    
+                        <div class="box-header with-border">
+                            <img src="<?=substr($_SESSION['photo'],1)?>" width="50%">
+                        </div>
+                        <h3 class="box-title"><?php echo "Д-р ". $_SESSION['first_name']. " " .$_SESSION['last_name']?></h3>
+
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" method="post" enctype="multipart/form-data" action="./php/update_doc_details.php">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
+                                <label for="exampleInputFile">Редактирай снимка</label>
                                 <input type="file" id="exampleInputFile">
 
-                                <p class="help-block">Example block-level help text here.</p>
+                                <label for="name">Име</label>
+                                <input type="text" name="fist_name" class="form-control" id="name" value="<?=$_SESSION['first_name']?>">
+                                
+                                <label for="family">Фамилия</label>
+                                <input type="text" name="last_name" class="form-control" id="family" value="<?=$_SESSION['last_name']?>">
+                                
+                                <label for="spec">Специалност</label>
+                                <input type="text" name="speciality" class="form-control" id="spec" value="<?=$_SESSION['speciality']?>">
+                                
+                                <label for="mail">Електронен адрес</label>
+                                <input type="email" name="email" class="form-control" id="mail" value="<?=$_SESSION['email']?>">
+                                
+                                <label for="phone">Телефон</label>
+                                <input type="text" name="phone" class="form-control" id="phone" value="<?=$_SESSION['phone']?>">
+                                                        
+                                <label for="biography">Автобиография</label>
+                                <textarea name="biography" rows="10" cols="30" class="form-control" id="biography" value="<?=$_SESSION['biography']?>"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Парола</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" value="<?=$_SESSION['password']?>">
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Check me out
+                                    <input type="checkbox"> Отпиши ме
                                 </label>
                             </div>
                         </div>
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Потвърди промените</button>
                         </div>
                     </form>
                 </div>
@@ -61,6 +75,8 @@
             </div>
             <!--/.col (left) -->
         </div>
-        <!-- /.row -->
+     </section>
 
+        <!-- /.row -->
+</div>
     <?php include './includes/admin/footer.php'; ?>

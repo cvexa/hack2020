@@ -71,7 +71,7 @@ include 'php/functions-login.php';
             $password = trim(htmlentities($_POST['password']));
             $loginResult = loginToSite($email, $password, $conn);
             if ($loginResult == 'Login') {
-                header("location: doctor_step_1.php");
+                header("location: doctor_schedule.php");
                 exit;
             } elseif ($loginResult == 'Password mismatch') {
                 ?>

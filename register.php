@@ -1,6 +1,7 @@
 <?php
     include 'php/db_connect.php';
     include 'php/functions-registration.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -116,6 +117,7 @@
                     // Когато базата се оправи мейлите да са UNIQUE трябва да се оправи и грешката, че вече има регистриран потребител с този мейл
                    $registrationResult = registration($register_data, $conn);
                    if ($registrationResult == 'registration'){
+                        echo "successfull registration";
                         header("location: login.php");    
                         exit; 
                    } elseif ($registrationResult == 'duplicate'){

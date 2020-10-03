@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -261,9 +261,8 @@
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-                        <a href="doctor_profile.php">
-                            <img src="./dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                        <a href="doctor_step_1.php">
+                            <span class="hidden-xs"><?php echo "д-р ". $_SESSION['first_name'] ." ". $_SESSION['last_name'] ?></span>
                         </a>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
