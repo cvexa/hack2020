@@ -1,40 +1,46 @@
 <?php include './includes/admin/header.php'; ?>
 <?php include './includes/admin/sidebar.php'; ?>
+<?php include './php/doctorData.php' ?>
+<?php $places = getTodayPlaces($conn); ?>
 <link rel="stylesheet" href="./bower_components/select2/dist/css/select2.min.css">
 <div class="col-md-6" style="margin-top:2%">
     <div class="box box-primary">
         <div class="box-header">
             <h3 class="box-title">Манажиране на часове</h3>
+            <?php if (isset($_GET['message'])) {
+                echo "<span class='success'>" . $_GET['message'] . "</span>";
+            }
+            ?>
         </div>
         <div class="box-body">
             <!-- /.form group -->
-            <form action="">
-                <div class="form-group">
-                    <label>избери ден и място</label>
-                    <select class="form-control select2" style="width: 100%;" id="shedule_day_id" name="start_time">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                </div>
 
+                <div class="form-group">
+                    <ul>
+                        <?php
+                            foreach ($places as $place) {
+                                echo "<li>" . $place['start_date'] . " - " . $place['end_date'] . " - " . $place['place_name'] . "</li>";
+                            }
+                        ?>
+                    </ul>
+                </div>
+            <form action="./php/processDoctorHours.php" method="POST">
                 <div class="bootstrap-timepicker">
                     <!-- /.form group -->
-                    <div class="form-group">
-                        <label>избери час</label>
-                        <select class="form-control select2" style="width: 100%;" id="start_time" name="start_time">
-                            <option selected="selected" value="07:00">07:00</option>
-                            <option value="07:15">07:15</option>
-                            <option value="07:30">07:30</option>
-                            <option value="07:45">07:45</option>
-                            <option value="08:00">08:00</option>
-                            <option value="08:15">08:15</option>
-                            <option value="08:30">08:30</option>
-                        </select>
+                    <div class="bootstrap-timepicker">
+                        <div class="form-group">
+                            <label>Time picker:</label>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control timepicker" name="start_time">
+
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <!-- /.form group -->
                     </div>
                     <!-- /.form group -->
                 </div>
@@ -64,24 +70,7 @@
     </div>
     <!-- /.box -->
 </div>
-<div class="col-md-6" style="margin-top:2%">
-    <div class="box box-default collapsed-box">
-        <div class="box-header with-border">
-            <h3 class="box-title">08:00</h3>
 
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                </button>
-            </div>
-            <!-- /.box-tools -->
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-            Георги Георгиев - 20г.
-        </div>
-        <!-- /.box-body -->
-    </div>
-</div>
 <!-- jQuery 3 -->
 <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
