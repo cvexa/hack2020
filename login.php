@@ -1,6 +1,6 @@
 <?php
-include 'php/db_connect.php';
-include 'php/functions-login.php';
+	include 'php/db_connect.php';
+	include 'php/functions-login.php';
 ?>
 <!DOCTYPE html>
 <html>
