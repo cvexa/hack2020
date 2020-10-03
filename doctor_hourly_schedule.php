@@ -18,8 +18,10 @@
                 <div class="form-group">
                     <ul>
                         <?php
-                            foreach ($places as $place) {
-                                echo "<li>" . $place['start_date'] . " - " . $place['end_date'] . " - " . $place['place_name'] . "</li>";
+                            if(count($places) > 1) {
+                                foreach ($places as $place) {
+                                    echo "<li>" . $place['start_date'] . " - " . $place['end_date'] . " - " . $place['place_name'] . "</li>";
+                                }
                             }
                         ?>
                     </ul>

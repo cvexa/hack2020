@@ -11,7 +11,7 @@ function getDoctorPlaces($conn)
         $res[$row["place_id"]]['place_name'] = $row["place_name"];
     }
 
-    return $res;
+    return isset($res)?$res:[];
 }
 
 function getDoctorScheduledPlaces($conn)
@@ -26,7 +26,7 @@ function getDoctorScheduledPlaces($conn)
         $res[$row["schedule_id"]] = $row;
     }
 
-    return $res;
+    return isset($res)?$res:[];
 }
 
 function getDoctorDailyHours($conn)
@@ -40,7 +40,7 @@ function getDoctorDailyHours($conn)
         $res[$row["schedule_id"]] = $row;
     }
 
-    return $res;
+    return isset($res)?$res:[];
 }
 
 function getTodayPlaces($conn)
@@ -55,5 +55,5 @@ function getTodayPlaces($conn)
         $res[$row["schedule_id"]] = $row;
     }
 
-    return $res;
+    return isset($res)?$res:[];
 }

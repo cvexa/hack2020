@@ -19,13 +19,15 @@
                     <label>Дата и час от, до</label>
                     <ul>
                         <?php
-                        foreach ($sheduledPlaces as $place) {
+                        if(count($sheduledPlaces) > 1) {
+                            foreach ($sheduledPlaces as $place) {
 
-                            echo '<form action="./php/deleteDoctorPlaces.php" method="post">';
-                            echo "<input type='hidden' name='schedule_place' id='schedule_place' value='" . $place['schedule_id'] . "'>";
-                            echo "<li>" . $place['start_date'] . " - " . $place['end_date'] . " - " . $place['place_name'] . "&nbsp;&nbsp;<button class='btn btn-xs btn-danger'>x</button></li>";
-                            echo '</form>';
+                                echo '<form action="./php/deleteDoctorPlaces.php" method="post">';
+                                echo "<input type='hidden' name='schedule_place' id='schedule_place' value='" . $place['schedule_id'] . "'>";
+                                echo "<li>" . $place['start_date'] . " - " . $place['end_date'] . " - " . $place['place_name'] . "&nbsp;&nbsp;<button class='btn btn-xs btn-danger'>x</button></li>";
+                                echo '</form>';
 
+                            }
                         }
                         ?>
                     </ul>
