@@ -19,7 +19,7 @@
                     <label>Дата и час от, до</label>
                     <ul>
                         <?php
-                        if(count($sheduledPlaces) > 1) {
+                        if(count($sheduledPlaces) > 0) {
                             foreach ($sheduledPlaces as $place) {
 
                                 echo '<form action="./php/deleteDoctorPlaces.php" method="post">';
