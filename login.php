@@ -1,13 +1,13 @@
 <?php
-    include 'php/db_connect.php'; 
-    include 'php/functions-login.php'; 
+include 'php/db_connect.php';
+include 'php/functions-login.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>e-Чакалня</title>
     <script src="js/script-login.js"></script>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -36,7 +36,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>Чакалня</b></a>
+        <a href="../../index2.html"><b>e-Чакалня</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -65,30 +65,30 @@
                 <!-- /.col -->
             </div>
         </form>
-        <?php        
-            if(isset($_POST['submit']) && strlen($_POST['email']) > 0 && strlen($_POST['password']) > 0){
-                $email = trim(htmlentities($_POST['email']));
-                $password = trim(htmlentities($_POST['password']));
-                $loginResult = loginToSite($email, $password, $conn);
-                if ($loginResult == 'Login') {                   
-                    header("location: doctor_step_1.php");    
-                    exit;   
-                } elseif ($loginResult == 'Password mismatch') {
-            ?>
-                    <script type="text/javascript">
-                        printError('Грешна парола');
-                        addMailToField(<?php echo "'" . $_SESSION['email'] . "'"; ?>);
-                    </script>
-            <?php
-                } else {
+        <?php
+        if (isset($_POST['submit']) && strlen($_POST['email']) > 0 && strlen($_POST['password']) > 0) {
+            $email = trim(htmlentities($_POST['email']));
+            $password = trim(htmlentities($_POST['password']));
+            $loginResult = loginToSite($email, $password, $conn);
+            if ($loginResult == 'Login') {
+                header("location: doctor_step_1.php");
+                exit;
+            } elseif ($loginResult == 'Password mismatch') {
                 ?>
-                    <script type="text/javascript">
-                        printError('Възникна грешка! Моля опитайте отново!');
-                        addMailToField(<?php echo "'" . $_SESSION['email'] . "'"; ?>);
-                    </script>
+                <script type="text/javascript">
+                    printError('Грешна парола');
+                    addMailToField(<?php echo "'" . $_SESSION['email'] . "'"; ?>);
+                </script>
             <?php
-                }
+            } else {
+            ?>
+                <script type="text/javascript">
+                    printError('Възникна грешка! Моля опитайте отново!');
+                    addMailToField(<?php echo "'" . $_SESSION['email'] . "'"; ?>);
+                </script>
+                <?php
             }
+        }
         ?>
 
         <div class="social-auth-links text-center">

@@ -4,13 +4,13 @@
 <div class="col-md-6" style="margin-top:2%">
     <div class="box box-primary">
         <div class="box-header">
-            <h3 class="box-title">Date picker</h3>
+            <h3 class="box-title">Манажиране на дни</h3>
         </div>
         <div class="box-body">
 
             <!-- Date and time range -->
             <div class="form-group">
-                <label>Date and time range:</label>
+                <label>Дата и час от, до</label>
 
                 <div class="input-group">
                     <div class="input-group-addon">
@@ -24,11 +24,11 @@
 
 
             <div class="form-group">
-                <label>Minimal</label>
+                <label>Място</label>
                 <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
+                    <option selected="selected">МБАЛ "Христо Ботев"</option>
+                    <option>св. "Анна"</option>
+                    <option>частен кабинет - стария пазар ...</option>
                     <option>Delaware</option>
                     <option>Tennessee</option>
                     <option>Texas</option>
@@ -36,34 +36,8 @@
                 </select>
             </div>
 
-            <div class="bootstrap-timepicker">
-                <div class="form-group">
-                    <label>Time picker:</label>
-
-                    <div class="input-group">
-                        <input type="text" class="form-control timepicker">
-
-                        <div class="input-group-addon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                    </div>
-                    <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-            </div>
-
-            <div class="form-group">
-                <label>Имена</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="reservationtime">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Години</label>
-                <div class="input-group">
-                    <input type="number" class="form-control" id="reservationtime">
-                </div>
+            <div class="form-group text-center">
+                <button class="btn btn-success" style="margin-top:2%;">Запази</button>
             </div>
 
         </div>
