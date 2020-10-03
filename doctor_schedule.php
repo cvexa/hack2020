@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php include './includes/admin/header.php'; ?>
 <?php include './includes/admin/sidebar.php'; ?>
 <?php include 'php/functions-schedule.php'; ?>
