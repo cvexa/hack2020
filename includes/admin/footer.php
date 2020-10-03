@@ -244,6 +244,9 @@
 
 <script src="./bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="./bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<!-- Sparkline -->
+<script src="./bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <script>
     $(function () {
         $('#schedule-table').DataTable({
@@ -255,6 +258,11 @@
             'autoWidth': false
         })
     })
+    $(".sparkline").each(function () {
+        var $this = $(this);
+        $this.sparkline('html', $this.data());
+    });
+</script>
 </script>
 </body>
 </html>
