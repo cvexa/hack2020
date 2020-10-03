@@ -1,9 +1,14 @@
+<?php
+    include 'php/db_connect.php'; 
+    include 'php/functions-login.php'; 
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminLTE 2 | Log in</title>
+    <script src="js/script-login.js"></script>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -35,15 +40,14 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Влезте в своя профил</p>
-
-        <form action="../../index2.html" method="post">
+        <p id="nodeUnderErrorMessage" class="login-box-msg">Влезте в своя профил</p>
+        <form method="post">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email">
+                <input name="email" id="email" type="email" class="form-control" placeholder="Електронна поща">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input name="password" type="password" class="form-control" placeholder="Парола">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -56,18 +60,43 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">вход</button>
+                    <button name="submit" type="submit" class="btn btn-primary btn-block btn-flat">вход</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
+        <?php        
+            if(isset($_POST['submit']) && strlen($_POST['email']) > 0 && strlen($_POST['password']) > 0){
+                $email = trim(htmlentities($_POST['email']));
+                $password = trim(htmlentities($_POST['password']));
+                $loginResult = loginToSite($email, $password, $conn);
+                if ($loginResult == 'Login') {                   
+                    header("location: doctor_step_1.php");    
+                    exit;   
+                } elseif ($loginResult == 'Password mismatch') {
+            ?>
+                    <script type="text/javascript">
+                        printError('Грешна парола');
+                        addMailToField(<?php echo "'" . $_SESSION['email'] . "'"; ?>);
+                    </script>
+            <?php
+                } else {
+                ?>
+                    <script type="text/javascript">
+                        printError('Възникна грешка! Моля опитайте отново!');
+                        addMailToField(<?php echo "'" . $_SESSION['email'] . "'"; ?>);
+                    </script>
+            <?php
+                }
+            }
+        ?>
 
         <div class="social-auth-links text-center">
         </div>
         <!-- /.social-auth-links -->
 
         <a href="#">Забравена парола</a><br>
-        <a href="register.html" class="text-center">Регистрация</a>
+        <a href="register.php" class="text-center">Регистрация</a>
 
     </div>
     <!-- /.login-box-body -->
