@@ -1,45 +1,60 @@
 <?php include './includes/admin/header.php'; ?>
 <?php include './includes/admin/sidebar.php'; ?>
+<?php include './php/doctorData.php' ?>
+<?php $places = getDoctorPlaces($conn); ?>
+<?php $sheduledPlaces = getDoctorScheduledPlaces($conn) ?>
 <link rel="stylesheet" href="./bower_components/select2/dist/css/select2.min.css">
 <div class="col-md-6" style="margin-top:2%">
     <div class="box box-primary">
         <div class="box-header">
-            <h3 class="box-title">Манажиране на дни</h3>
+            <h3 class="box-title">Мeнажиране на дни</h3>
+            <?php if (isset($_GET['message'])) {
+                echo "<span class='success'>" . $_GET['message'] . "</span>";
+            }
+            ?>
         </div>
         <div class="box-body">
+                <!-- Date and time range -->
+                <div class="form-group">
+                    <label>Дата и час от, до</label>
+                    <ul>
+                        <?php
+                        foreach ($sheduledPlaces as $place) {
 
-            <!-- Date and time range -->
-            <div class="form-group">
-                <label>Дата и час от, до</label>
+                            echo '<form action="./php/deleteDoctorPlaces.php" method="post">';
+                            echo "<input type='hidden' name='schedule_place' id='schedule_place' value='" . $place['schedule_id'] . "'>";
+                            echo "<li>" . $place['start_date'] . " - " . $place['end_date'] . " - " . $place['place_name'] . "&nbsp;&nbsp;<button class='btn btn-xs btn-danger'>x</button></li>";
+                            echo '</form>';
 
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                    </div>
-                    <input type="text" class="form-control pull-right" id="reservationtime">
+                        }
+                        ?>
+                    </ul>
+
                 </div>
-                <!-- /.input group -->
-            </div>
-            <!-- /.form group -->
+                <!-- /.form group -->
 
+                <div class="form-group">
+                    <form method="POST" action="./php/processDoctorPlaces.php">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="reservationtime" name="dateTime">
+                        </div>
+                        <!-- /.input group -->
+                    <label>Място</label>
+                    <select class="form-control select2" style="width: 100%;" name="places">
+                        <?php foreach ($places as $placeId => $place) {
+                            echo "<option value='" . $placeId . "'>" . $place['place_name'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label>Място</label>
-                <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">МБАЛ "Христо Ботев"</option>
-                    <option>св. "Анна"</option>
-                    <option>частен кабинет - стария пазар ...</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                </select>
-            </div>
-
-            <div class="form-group text-center">
-                <button class="btn btn-success" style="margin-top:2%;">Запази</button>
-            </div>
-
+                <div class="form-group text-center">
+                    <button class="btn btn-success" style="margin-top:2%;">Запази</button>
+                </div>
+            </form>
         </div>
         <!-- /.box-body -->
     </div>
@@ -53,7 +68,9 @@
 <script>
     $(function () {
         //Initialize Select2 Elements
-        $('.select2').select2()
+        $('.select2').select2({
+            tags: true
+        });
 
         //Datemask dd/mm/yyyy
         $('#datemask').inputmask('dd/mm/yyyy', {'placeholder': 'dd/mm/yyyy'})
