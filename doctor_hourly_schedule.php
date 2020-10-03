@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <ul>
                         <?php
-                            if(count($places) > 1) {
+                            if(count($places) > 0) {
                                 foreach ($places as $place) {
                                     echo "<li>" . $place['start_date'] . " - " . $place['end_date'] . " - " . $place['place_name'] . "</li>";
                                 }
