@@ -1,6 +1,28 @@
 <?php
 	include 'db_connect.php';
 
+	function setPatientsChecked($conn, $value){
+		$sql = "UPDATE user_codes SET finished = 1 WHERE user_id = " . $value;
+		$result = mysqli_query($conn, $sql);
+		if (!$result){
+			// Връщаме грешка
+		}
+	}
+
+	function getPatientsWaiting($conn){
+		$sql = "SELECT user_id, name, age FROM user_codes WHERE finished is null";
+		$patients = array();
+		$result = mysqli_query($conn, $sql);
+		if ($result){
+			while ($row = mysqli_fetch_assoc($result)) {
+				$patients[$row['user_id']] = array('id' => $row['user_id'], 'name' => $row['name'], 'age' => $row['age']);
+			}		
+			return $patients;
+		} else {
+			// Връщаме грешка
+		}
+	}
+
 	function clearFields($conn, $value){
 		$sql = "UPDATE schedule_hours SET name_patient = NULL, age = NULL, reason = NULL WHERE id_hour = " . $value;
 		$result = mysqli_query($conn, $sql);
@@ -18,7 +40,9 @@
 	}
 
 	function returnAppointments($conn){
-		$sql = "SELECT id_hour as id, schedule_hours.start_time as hour, places.place_name as place, name_patient, age, reason FROM schedule_hours JOIN schedule_place ON schedule_hours.schedule_place_id = schedule_place.schedule_id JOIN places ON schedule_place.place_id = places.place_id";
+		$sql = "SELECT id_hour as id, schedule_hours.start_time as hour, places.place_name as place, name_patient, age, reason FROM schedule_hours JOIN schedule_place ON schedule_hours.schedule_place_id = schedule_place.schedule_id JOIN places ON schedule_place.place_id = places.place_id WHERE schedule_place.doctor_id = '" . $_SESSION['doctor_id'] . "' AND '".date('Y-m-d')."' BETWEEN DATE(schedule_place.start_date) AND DATE(schedule_place.end_date) ORDER BY schedule_place.start_date ASC";
+
+		
 		$result = mysqli_query($conn, $sql);  
 		if ($result){
 			$arrayAppoitments = array();
@@ -80,5 +104,6 @@
 			}			
 			echo '</td>';
 			echo '</form>';
+			echo '</tr>';			
 		}	
 	}

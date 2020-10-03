@@ -44,6 +44,7 @@
 
 Учил:</textarea>
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputFile">Прикачете снимка</label>
                                 <input name="photo" type="file" id="photo">

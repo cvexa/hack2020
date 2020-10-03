@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time:  2 окт 2020 в 22:04
--- Версия на сървъра: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Generation Time: Oct 03, 2020 at 02:38 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `doctors`
+-- Table structure for table `doctors`
 --
 
 CREATE TABLE `doctors` (
@@ -35,14 +35,22 @@ CREATE TABLE `doctors` (
   `speciality` varchar(100) NOT NULL,
   `biography` text NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(120) NOT NULL,
   `photo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`doctor_id`, `first_name`, `last_name`, `speciality`, `biography`, `email`, `password`, `photo`) VALUES
+(16, 'Петър', 'Иванов', '', '', 'sjuesju@yahoo.no', '$2y$10$YbFTbv4/JPvk0DDOcZ.8ZupPmNBKzcHbG.Gf7zO1UfFbOF2nN7PAu', ''),
+(18, 'Петя', 'Цветкова', '', '', 'ew@gmail.com', '$2y$10$Up/ebeEOR3pCLqwJ3meXd.Bg.19P1XQdHxE8QExcIQSImvDvrXIie', '');
 
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `places`
+-- Table structure for table `places`
 --
 
 CREATE TABLE `places` (
@@ -50,10 +58,18 @@ CREATE TABLE `places` (
   `place_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `places`
+--
+
+INSERT INTO `places` (`place_id`, `place_name`) VALUES
+(1, 'Света Ана'),
+(2, 'МБАЛ Враца');
+
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `queue`
+-- Table structure for table `queue`
 --
 
 CREATE TABLE `queue` (
@@ -65,7 +81,7 @@ CREATE TABLE `queue` (
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `schedule_hours`
+-- Table structure for table `schedule_hours`
 --
 
 CREATE TABLE `schedule_hours` (
@@ -78,10 +94,21 @@ CREATE TABLE `schedule_hours` (
   `finished` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `schedule_hours`
+--
+
+INSERT INTO `schedule_hours` (`id_hour`, `schedule_place_id`, `start_time`, `name_patient`, `age`, `reason`, `finished`) VALUES
+(1, 1, '07:00:00', '', NULL, NULL, 0),
+(2, 1, '07:15:00', '', NULL, NULL, 0),
+(3, 1, '07:30:00', '', NULL, NULL, 0),
+(4, 1, '07:45:00', '', '', '', 0),
+(6, 1, '08:00:00', '', NULL, NULL, 0);
+
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `schedule_place`
+-- Table structure for table `schedule_place`
 --
 
 CREATE TABLE `schedule_place` (
@@ -94,10 +121,17 @@ CREATE TABLE `schedule_place` (
   `total_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `schedule_place`
+--
+
+INSERT INTO `schedule_place` (`schedule_id`, `start_date`, `end_date`, `doctor_id`, `place_id`, `total_checked`, `total_time`) VALUES
+(1, '2020-10-04 07:00:00', '2020-10-04 13:00:00', 16, 1, 0, '00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `user_codes`
+-- Table structure for table `user_codes`
 --
 
 CREATE TABLE `user_codes` (
@@ -117,7 +151,8 @@ CREATE TABLE `user_codes` (
 -- Indexes for table `doctors`
 --
 ALTER TABLE `doctors`
-  ADD PRIMARY KEY (`doctor_id`);
+  ADD PRIMARY KEY (`doctor_id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `places`
@@ -162,13 +197,13 @@ ALTER TABLE `user_codes`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `places`
 --
 ALTER TABLE `places`
-  MODIFY `place_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `place_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `queue`
@@ -180,13 +215,13 @@ ALTER TABLE `queue`
 -- AUTO_INCREMENT for table `schedule_hours`
 --
 ALTER TABLE `schedule_hours`
-  MODIFY `id_hour` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_hour` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `schedule_place`
 --
 ALTER TABLE `schedule_place`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_codes`
@@ -195,23 +230,23 @@ ALTER TABLE `user_codes`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Ограничения за дъмпнати таблици
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения за таблица `queue`
+-- Constraints for table `queue`
 --
 ALTER TABLE `queue`
   ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user_codes` (`user_id`);
 
 --
--- Ограничения за таблица `schedule_hours`
+-- Constraints for table `schedule_hours`
 --
 ALTER TABLE `schedule_hours`
   ADD CONSTRAINT `schedule_place_id` FOREIGN KEY (`schedule_place_id`) REFERENCES `schedule_place` (`place_id`);
 
 --
--- Ограничения за таблица `schedule_place`
+-- Constraints for table `schedule_place`
 --
 ALTER TABLE `schedule_place`
   ADD CONSTRAINT `doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`doctor_id`),
