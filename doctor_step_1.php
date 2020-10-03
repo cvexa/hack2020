@@ -6,8 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Допълнителна информация
-            <small>Preview</small>
+            Добре дошъл, <?php echo "д-р ". $_SESSION['first_name'] ." ". $_SESSION['last_name'] ?>!
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -24,36 +23,37 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Quick Example</h3>
+                        <h3 class="box-title">Допълнителна информация</h3>  
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <? $_SESSION['success']; ?>
+                    <form role="form" method="post" enctype="multipart/form-data" action="./php/write_doc_details.php">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <label for="exampleInputPhone1">Телефонен номер</label>
+                                <input type="text" name="phone" class="form-control" id="exampleInputPhone1" placeholder="08** *** ***">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <label for="exampleInputSpeciality1">Специалност</label>
+                                <input type="text" name="speciality" class="form-control" id="exampleInputSpeciality1" placeholder="Въведете специалност">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
+                                <label for="exampleInputBiography1">Автобиография</label>
+                                <textarea name="biography" rows="10" cols="30" class="form-control" id="exampleInputBiography1" placeholder="Въведете професионална биография">Работил:
 
-                                <p class="help-block">Example block-level help text here.</p>
+Учил:</textarea>
                             </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Check me out
-                                </label>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Прикачете снимка</label>
+                                <input name="photo" type="file" id="photo">
                             </div>
                         </div>
+
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" name="submit" class="btn btn-primary">Потвърди</button>
                         </div>
                     </form>
                 </div>
@@ -63,6 +63,6 @@
         </div>
         <!-- /.row -->
     </section>
+    <?php unset($_SESSION['success']); ?>
     <!-- /.content -->
-
     <?php include './includes/admin/footer.php'; ?>
