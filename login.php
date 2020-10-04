@@ -1,6 +1,6 @@
 <?php
 	include 'php/db_connect.php';
-	include 'php/functions-login.php';
+	include 'php/functions-login.php';   
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +33,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page">  
 <div class="login-box">
     <div class="login-logo">
         <a href="../../index2.html"><b>e-Чакалня</b></a>
@@ -66,6 +66,14 @@
             </div>
         </form>
         <?php
+        if (isset($_GET['logout']) && strlen($_GET['logout']) > 0){
+             ?>
+            <script type="text/javascript">
+                printError(<?php echo $_GET['logout']; ?>);
+            </script>
+         <?php
+            }
+
         if (isset($_POST['submit']) && strlen($_POST['email']) > 0 && strlen($_POST['password']) > 0) {
             $email = trim(htmlentities($_POST['email']));
             $password = trim(htmlentities($_POST['password']));

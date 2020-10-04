@@ -58,8 +58,8 @@
 	}
 
 	function printTable($arrayAppoitments){
-		foreach ($arrayAppoitments as $value) {
-			echo '<tr>';
+		foreach ($arrayAppoitments as $value) {			
+			echo '<tr>';			
 			echo '<form method="POST" action="php/appoitments-update.php">';
 			echo '<input type="hidden" value="' . $value['id'] . '" name="id_hour">';
 			echo '<td>';

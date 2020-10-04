@@ -1,5 +1,6 @@
 function printError(message){
 	var newItem = document.createElement("p");
+	newItem.classList.add("text-danger");
 	var textnode = document.createTextNode(message);
 	newItem.appendChild(textnode);  
 

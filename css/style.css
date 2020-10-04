@@ -7,3 +7,9 @@
 	background-color: black;
 	margin: 0 auto;
 }
+
+.opClass{
+	width: 100%;
+  	height: auto;
+  	opacity: 0.2;
+}

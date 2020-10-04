@@ -1,6 +1,8 @@
 <?php 
 	include 'php/functions-schedule.php';
-	$sql = 'SELECT user_id, name, age FROM user_codes WHERE finished IS NULL';
+	$doctorId = Trim(stripslashes($_POST['doctorId']));
+	
+	$sql = 'SELECT user_id, name, age FROM user_codes WHERE finished IS NULL AND doctor_id = ' . $doctorId;
 	$resultTwo = mysqli_query($conn, $sql);
 		if ($resultTwo){
 			$patients = array();
