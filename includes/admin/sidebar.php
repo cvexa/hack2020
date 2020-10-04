@@ -8,7 +8,7 @@
                 <img src="./dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p><?= isset($_SESSION['first_name'])?$_SESSION['first_name']:'Александър';  ?> <?= isset($_SESSION['last_name'])?$_SESSION['last_name']:'Александров';  ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -47,6 +47,14 @@
                 <a href="doctor_schedule.php">
                     <i class="fa fa-pie-chart"></i>
                     <span>Чакалня</span>
+                    <span class="pull-right-container">
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <i class="fa fa-user"></i>
+                    <span>Изход</span>
                     <span class="pull-right-container">
                 </span>
                 </a>

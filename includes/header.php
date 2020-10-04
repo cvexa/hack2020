@@ -106,12 +106,15 @@
                     <span aria-hidden="true">&times;</span></button>
 
             </div>
-            <div class="modal-body">
-                <p class="text-center"><input type="text" placeholder="Въведи код"></p>
-            </div>
-            <div class="modal-footer text-center">
-                <button type="button" class="btn btn-primary">влез</button>
-            </div>
+            <form action="processUserCode.php" method="post">
+                <div class="modal-body">
+                    <p class="text-center"><input type="text" placeholder="Въведи код" name="code" id="code"></p>
+                </div>
+                <div class="modal-footer text-center">
+
+                    <input type="submit" class="btn btn-primary" value="влез">
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
