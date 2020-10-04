@@ -1,56 +1,3 @@
-<!--====== CONTACT PART START ======-->
-
-<section id="contact" class="contact-area">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-10">
-                <div class="section-title text-center pb-30">
-                    <h3 class="title">Contact</h3>
-                    <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                </div> <!-- section title -->
-            </div>
-        </div>
-        <div class="contact-info pt-30">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-contact-info contact-color-1 mt-30 d-flex ">
-                        <div class="contact-info-icon">
-                            <i class="lni lni-map-marker"></i>
-                        </div>
-                        <div class="contact-info-content media-body">
-                            <p class="text"> Elizabeth St, Melbourne<br>1202 Australia.</p>
-                        </div>
-                    </div> <!-- single contact info -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-contact-info contact-color-2 mt-30 d-flex ">
-                        <div class="contact-info-icon">
-                            <i class="lni lni-envelope"></i>
-                        </div>
-                        <div class="contact-info-content media-body">
-                            <p class="text">hello@ayroui.com</p>
-                            <p class="text">support@uideck.com</p>
-                        </div>
-                    </div> <!-- single contact info -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-contact-info contact-color-3 mt-30 d-flex ">
-                        <div class="contact-info-icon">
-                            <i class="lni lni-phone"></i>
-                        </div>
-                        <div class="contact-info-content media-body">
-                            <p class="text">+333 789-321-654</p>
-                            <p class="text">+333 985-458-609</p>
-                        </div>
-                    </div> <!-- single contact info -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- contact info -->
-
-    </div> <!-- container -->
-</section>
-
-<!--====== CONTACT PART ENDS ======-->
 
 <!--====== FOOTER PART START ======-->
 
@@ -68,11 +15,11 @@
                     <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
                 </ul> <!-- social -->
                 <div class="footer-support text-center">
-                    <span class="number">+8801234567890</span>
-                    <span class="mail">support@uideck.com</span>
+                    <span class="number">+888888888888</span>
+                    <span class="mail">support@е-waitingRoom.com</span>
                 </div>
                 <div class="copyright text-center mt-35">
-                    <p class="text">Designed by <a href="https://uideck.com" rel="nofollow">UIdeck</a> and Built-with <a rel="nofollow" href="https://ayroui.com">Ayro UI</a> </p>
+                    <p class="text">created by <a href="" rel="nofollow">Easy Coders</a> </p>
                 </div> <!--  copyright -->
             </div>
         </div> <!-- row -->

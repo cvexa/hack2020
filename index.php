@@ -19,7 +19,7 @@
                         <div class="col-lg-6">
                             <div class="slider-content">
                                 <h1 class="title">Стъпка 1</h1>
-                                <p class="text">Избери доктор от нашия сайт</p>
+                                <p class="text">Избери доктор от нашия сайт, запази си място на опашката</p>
 
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                         <div class="col-lg-6">
                             <div class="slider-content">
                                 <h1 class="title">Стъпка 2</h1>
-                                <p class="text">избери подходящия за теб час</p>
+                                <p class="text">избери подходящото за теб време</p>
 
                             </div> <!-- slider-content -->
                         </div>
@@ -46,7 +46,7 @@
                 </div> <!-- container -->
                 <div class="slider-image-box d-none d-lg-flex align-items-end">
                     <div class="slider-image">
-                        <img src="assets/images/slider/2.png" alt="Hero">
+                        <img src="assets/images/slider/3.png" alt="Hero">
                     </div> <!-- slider-imgae -->
                 </div> <!-- slider-imgae box -->
             </div> <!-- carousel-item -->
@@ -57,18 +57,14 @@
                         <div class="col-lg-6">
                             <div class="slider-content">
                                 <h1 class="title">Стъпка 3</h1>
-                                <p class="text">Нареди се на опашката</p>
-<!--                                <ul class="slider-btn rounded-buttons">-->
-<!--                                    <li><a class="main-btn rounded-one" href="#">GET STARTED</a></li>-->
-<!--                                    <li><a class="main-btn rounded-two" href="#">DOWNLOAD</a></li>-->
-<!--                                </ul>-->
+                                <p class="text">Можеш предварително да планираш целия си ден</p>
                             </div> <!-- slider-content -->
                         </div>
                     </div> <!-- row -->
                 </div> <!-- container -->
                 <div class="slider-image-box d-none d-lg-flex align-items-end">
                     <div class="slider-image">
-                        <img src="assets/images/slider/3.png" alt="Hero">
+                        <img src="assets/images/slider/2.png" alt="Hero">
                     </div> <!-- slider-imgae -->
                 </div> <!-- slider-imgae box -->
             </div> <!-- carousel-item -->
@@ -92,8 +88,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-10">
                 <div class="section-title text-center pb-10">
-                    <h3 class="title">Our Services</h3>
-                    <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
+                    <h3 class="title">Ползи</h3>
+                    <p class="text">С нашата електронна чакалня, решаваме от части проблема със струпването на много хора, пред кабинетите, ето как работи</p>
                 </div> <!-- row -->
             </div>
         </div> <!-- row -->
@@ -137,7 +133,7 @@
                         </div>
                     </div>
                     <div class="features-content">
-                        <p class="text">Не губиш излишно време, напротив печелиш си време</p><br/>
+                        <p class="text">Не губиш излишно време, като следиш в реално време чакалнята пред кабинетите</p><br/>
                     </div>
                 </div> <!-- single features -->
             </div>
@@ -168,14 +164,12 @@
                     <div class="team-content">
                         <div class="team-social">
                             <ul class="social">
-                                <li>св. Анна</li>
-<!--                                <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>-->
-<!--                                <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>-->
-<!--                                <li><a href="#"><i class="lni lni-instagram"></i></a></li>-->
+                                <li>ДКЦ 1 Враца</li>
                             </ul>
                         </div>
-                        <h4 class="team-name"><a href="#">Иван Иванов</a></h4>
-                        <span class="sub-title">Педиатър</span>
+                        <h4 class="team-name"><a href="single_doctor.php">Иван Иванов</a></h4>
+                        <span class="sub-title">Педиатър</span><br/>
+                        <span class="waiting_count">50</span>(в чакалня)
                     </div>
                 </div> <!-- single team -->
             </div>
@@ -187,14 +181,12 @@
                     <div class="team-content">
                         <div class="team-social">
                             <ul class="social">
-                                <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
-                                <li><a href="#"><i class="lni lni-instagram"></i></a></li>
+                                <li>МБАЛ "Христо Ботев"</li>
                             </ul>
                         </div>
-                        <h4 class="team-name"><a href="#">Riley Beata</a></h4>
-                        <span class="sub-title">Web Developer</span>
+                        <h4 class="team-name"><a href="single_doctor.php">Поля Симеонова</a></h4>
+                        <span class="sub-title">Гастроентеролог</span><br/>
+                        <span class="waiting_count">50</span>(в чакалня)
                     </div>
                 </div> <!-- single team -->
             </div>
@@ -206,20 +198,92 @@
                     <div class="team-content">
                         <div class="team-social">
                             <ul class="social">
-                                <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
-                                <li><a href="#"><i class="lni lni-instagram"></i></a></li>
+                                <li>Медицински център "САНИТА"</li>
                             </ul>
                         </div>
-                        <h4 class="team-name"><a href="#">Mark A. Parker</a></h4>
-                        <span class="sub-title">UX Designer</span>
+                        <h4 class="team-name"><a href="single_doctor.php">Дария Георгиева</a></h4>
+                        <span class="sub-title">Инфекциозни болести</span><br/>
+                        <span class="waiting_count">50</span>(в чакалня)
+                    </div>
+                </div> <!-- single team -->
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
+                    <div class="team-image">
+                        <img src="assets/images/team-4.jpg" alt="Team">
+                    </div>
+                    <div class="team-content">
+                        <div class="team-social">
+                            <ul class="social">
+                                <li>Медицински център "САНИТА"</li>
+                            </ul>
+                        </div>
+                        <h4 class="team-name"><a href="single_doctor.php">Стивън Симеонов</a></h4>
+                        <span class="sub-title">Ушно-носно-гърлени болести</span><br/>
+                        <span class="waiting_count">50</span>(в чакалня)
+                    </div>
+                </div> <!-- single team -->
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
+                    <div class="team-image">
+                        <img src="assets/images/team-5.jpg" alt="Team">
+                    </div>
+                    <div class="team-content">
+                        <div class="team-social">
+                            <ul class="social">
+                                <li>Медицински център "САНИТА"</li>
+                            </ul>
+                        </div>
+                        <h4 class="team-name"><a href="single_doctor.php">Божидар Василев</a></h4>
+                        <span class="sub-title">Акушерство и гинекология</span><br/>
+                        <span class="waiting_count">50</span>(в чакалня)
+                    </div>
+                </div> <!-- single team -->
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
+                    <div class="team-image">
+                        <img src="assets/images/team-6.jpg" alt="Team">
+                    </div>
+                    <div class="team-content">
+                        <div class="team-social">
+                            <ul class="social">
+                                <li>Медицински център "САНИТА"</li>
+                            </ul>
+                        </div>
+                        <h4 class="team-name"><a href="single_doctor.php">Калина Тотева</a></h4>
+                        <span class="sub-title">Съдова хирургия</span><br/>
+                        <span class="waiting_count">50</span>(в чакалня)
                     </div>
                 </div> <!-- single team -->
             </div>
         </div> <!-- row -->
     </div> <!-- container -->
 </section>
+<script>
+    window.setInterval(function(){
+        $('.waiting_count').each(function(k,v){
+            var oldNum = $(this).html();
+            oldNum = parseInt(oldNum);
+            var peoplePlus = Math.floor((Math.random() * 10) + 1);
+            var peopleMinus = Math.floor((Math.random() * 1) + oldNum);
+            var plusOrMinus = Math.floor((Math.random() * 2) + 1);
+            $( this ).html('');
+            console.log(peopleMinus);
+            if(plusOrMinus > 1) {
+                $(this).html(oldNum + peoplePlus)
+            }else{
+                $(this).html(oldNum - peopleMinus)
+            }
+            if(parseInt($(this).html()) < 1){
+                $(this).parent().css({'background-color':'#c3f6c3'});
+            }else{
+                $(this).parent().css({'background-color':'#fff'});
+            }
+        });
+    }, 2000);
+</script>
 
 <!--====== TEAM  ENDS ======-->
 <?php include './includes/footer.php'; ?>
